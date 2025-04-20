@@ -2,6 +2,7 @@ import React from 'react';
 import '../app/shared/styles.css';
 import MeshGradientBackground from './MeshGradientBackground';
 import { Sparkles, Mic, BrainCircuit } from 'lucide-react';
+import Image from 'next/image';
 
 interface ContentItem {
   type: string;
@@ -75,11 +76,15 @@ const HeroBlock: React.FC<HeroBlockProps> = ({ title, content }) => {
         </div>
         <div className="blockImageWrapper">
           <div className="blockImageContainer">
-            <img 
+            <Image 
               src="/offermyco/art1-min.png" 
-              alt="AI Ethereal Assistant" 
+              alt="AI Ethereal Assistant"
               className="blockImage"
               id="heroImage"
+              style={{ filter: 'none' }}
+              width={600}
+              height={600}
+              priority
             />
           </div>
         </div>

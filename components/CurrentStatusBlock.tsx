@@ -5,6 +5,7 @@ import styles from './CurrentStatusBlock.module.css';
 import MeshGradientBackground from './MeshGradientBackground';
 import { Mic, Database, Users, BookOpen, GanttChart, FileStack, Cpu } from 'lucide-react';
 import '../app/shared/styles.css';
+import Image from 'next/image';
 
 interface ContentItem {
   type: string;
@@ -67,13 +68,17 @@ const CurrentStatusBlock: React.FC<CurrentStatusBlockProps> = ({ title, content 
     const title = featureTitle.toLowerCase();
     
     if (title.includes('голос')) {
-      return '/offermyco/mycelium_illustr.png';
+      return '/offermyco/voice_inp.png';
     } else if (title.includes('ии-ассистент')) {
       return '/offermyco/ai_assist.png';
+    } else if (title.includes('выбор моделей') || title.includes('модел')) {
+      return '/offermyco/model_select.png';
     } else if (title.includes('интеграция')) {
       return '/offermyco/docs_func.png';
     } else if (title.includes('файл')) {
       return '/offermyco/book_png.png';
+    } else if (title.includes('аккаунт')) {
+      return '/offermyco/cubes.png';
     }
     
     return undefined;
@@ -110,10 +115,12 @@ const CurrentStatusBlock: React.FC<CurrentStatusBlockProps> = ({ title, content 
                 
                 {feature.image && (
                   <div className={styles.statusImageContainer}>
-                    <img 
+                    <Image 
                       src={feature.image} 
                       alt={feature.title} 
                       className={styles.statusImage}
+                      width={200}
+                      height={200}
                     />
                   </div>
                 )}

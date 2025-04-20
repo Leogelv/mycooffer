@@ -1,0 +1,287 @@
+/* RoadmapBlock.module.css */
+
+.roadmapBlockWrapper {
+  position: relative;
+  min-height: 100vh;
+}
+
+.roadmapContainer {
+  padding: 6rem 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.headerSection {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 5rem;
+}
+
+.roadmapContent {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.roadmapStages {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  width: 100%;
+}
+
+.stageCard {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 25px rgba(120, 120, 200, 0.1);
+  position: relative;
+}
+
+.stageCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(120, 120, 200, 0.15);
+}
+
+.stageNumber {
+  position: absolute;
+  top: -1.5rem;
+  left: 2rem;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(100, 70, 180, 0.8), rgba(150, 120, 220, 0.7));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  box-shadow: 0 8px 20px rgba(120, 120, 200, 0.15);
+  z-index: 2;
+}
+
+.stageContent {
+  padding: 3rem 2rem 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.stageTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: rgb(60, 65, 115);
+  font-family: var(--font-unbounded), system-ui, sans-serif;
+}
+
+.stageDescription {
+  margin-bottom: 1rem;
+}
+
+.stageDuration {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  color: rgb(100, 70, 180);
+}
+
+.pricingContainer {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(245, 245, 255, 0.8));
+  border-radius: 2rem;
+  padding: 3rem;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(120, 120, 200, 0.15);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.pricingContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, 
+    rgba(255, 255, 255, 0) 25%, 
+    rgba(255, 255, 255, 0.2) 50%, 
+    rgba(255, 255, 255, 0) 75%);
+  animation: shimmer 8s infinite linear;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.pricingTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: rgb(60, 65, 115);
+  position: relative;
+  z-index: 2;
+}
+
+.pricingAmount {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, rgb(60, 60, 100) 0%, rgb(100, 70, 180) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+}
+
+.pricingAmount::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -0.75rem;
+  width: 6rem;
+  height: 0.35rem;
+  background: linear-gradient(90deg, rgb(100, 70, 180) 0%, rgba(150, 120, 220, 0.4) 100%);
+  border-radius: 1rem;
+}
+
+.pricingDescription {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.summaryContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(150, 150, 200, 0.2);
+  position: relative;
+  z-index: 2;
+}
+
+.summaryItem {
+  flex: 1;
+  text-align: center;
+}
+
+.summaryValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: rgb(80, 70, 140);
+  margin-bottom: 0.5rem;
+}
+
+.summaryLabel {
+  font-size: 0.9rem;
+  color: rgb(100, 100, 150);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(150%) skewX(-20deg);
+  }
+}
+
+/* Responsive styles */
+@media screen and (max-width: 1024px) {
+  .roadmapStages {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  .pricingContainer {
+    padding: 2.5rem;
+  }
+  
+  .pricingAmount {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .roadmapStages {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .roadmapContainer {
+    padding: 4rem 1.5rem;
+  }
+  
+  .headerSection {
+    margin-bottom: 3rem;
+  }
+  
+  .pricingContainer {
+    padding: 2rem 1.5rem;
+  }
+  
+  .pricingAmount {
+    font-size: 2.5rem;
+  }
+  
+  .summaryContainer {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .roadmapContainer {
+    padding: 3rem 1rem;
+  }
+  
+  .stageCard {
+    margin-top: 1.5rem;
+  }
+  
+  .stageContent {
+    padding: 3rem 1.5rem 1.5rem;
+  }
+  
+  .pricingContainer {
+    padding: 2rem 1rem;
+    border-radius: 1.5rem;
+  }
+  
+  .pricingTitle {
+    font-size: 1.75rem;
+  }
+  
+  .pricingAmount {
+    font-size: 2.25rem;
+  }
+  
+  .pricingDescription {
+    font-size: 1.1rem;
+  }
+} 
