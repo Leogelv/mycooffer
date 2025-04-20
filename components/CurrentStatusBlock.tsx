@@ -119,8 +119,10 @@ const CurrentStatusBlock: React.FC<CurrentStatusBlockProps> = ({ title, content 
                       src={feature.image} 
                       alt={feature.title} 
                       className={styles.statusImage}
-                      width={200}
-                      height={200}
+                      width={160}
+                      height={120}
+                      style={{ objectFit: 'contain' }}
+                      priority
                     />
                   </div>
                 )}
