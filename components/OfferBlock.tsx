@@ -1,7 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
-import { Button } from './Button';
 
 interface OfferBlockProps {
   title: string;
@@ -79,9 +78,6 @@ export function OfferBlock({
         <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-800 text-transparent bg-clip-text">{title}</h2>
         <div className="text-slate-700 space-y-2 text-lg">
           {formatText(description)}
-        </div>
-        <div className="pt-4">
-          <Button size="lg">Подробнее</Button>
         </div>
       </div>
     </div>

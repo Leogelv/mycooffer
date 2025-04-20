@@ -1,9 +1,5 @@
 import React from 'react';
 import { OfferBlock } from './OfferBlock';
-import { Button } from './Button';
-import { PricingBlock } from './PricingBlock';
-import { TechDetailsBlock } from './TechDetailsBlock';
-import { Footer } from './Footer';
 
 export function OfferPage() {
   // Данные из textoffer.md
@@ -56,69 +52,13 @@ export function OfferPage() {
           </p>
         </div>
 
-        {/* Блок с шагами по левой стороне */}
-        <div className="flex flex-col lg:flex-row gap-8 mb-16">
-          {/* Шаги слева */}
-          <div className="w-full lg:w-1/4 bg-white/50 backdrop-blur-sm rounded-xl p-6 shadow-sm">
-            <h3 className="text-xl font-medium text-slate-700 mb-6">Journey</h3>
-            
-            <div className="space-y-4">
-              <div className="bg-indigo-50 rounded-lg p-3 border-l-4 border-indigo-600">
-                <div className="text-sm text-slate-500">Step 1</div>
-                <div className="font-medium">Birth of an idea</div>
-              </div>
-              
-              <div className="p-3 hover:bg-slate-50 rounded-lg transition-colors">
-                <div className="text-sm text-slate-500">Step 2</div>
-                <div className="font-medium">Auto-research</div>
-              </div>
-              
-              <div className="p-3 hover:bg-slate-50 rounded-lg transition-colors">
-                <div className="text-sm text-slate-500">Step 3</div>
-                <div className="font-medium">Deep interpretation</div>
-              </div>
-              
-              <div className="p-3 hover:bg-slate-50 rounded-lg transition-colors">
-                <div className="text-sm text-slate-500">Step 4</div>
-                <div className="font-medium">Live graph-knowledge</div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Основной контент */}
-          <div className="w-full lg:w-3/4">
-            <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-8">
-              <h2 className="text-2xl font-medium text-indigo-700 mb-8">Step 1: Birth of an idea</h2>
-              <div className="bg-slate-50/70 p-5 rounded-xl mb-6">
-                <p className="text-slate-500 mb-2">Capture an inspiration — as-it-in dialogue with a sup-for assistant</p>
-                <p className="text-slate-700 italic">
-                  "Save an idea about the connection of mycelium with archetypes of ancient cultures."
-                </p>
-                <div className="mt-4 flex justify-end">
-                  <Button variant="outline" size="sm">Try it</Button>
-                </div>
-              </div>
-              <p className="text-slate-600 mb-6">
-                The system immediately transforms this typed text, preserves it in the appropriate chapter, and shows it in context.
-              </p>
-              <OfferBlock 
-                title={offerData.title}
-                description={offerData.description}
-                imageSrc={offerData.imageSrc}
-              />
-            </div>
-          </div>
-        </div>
-        
-        {/* Блок с ценами */}
-        <PricingBlock />
-        
-        {/* Технические детали */}
-        <TechDetailsBlock />
+        {/* Первый блок */}
+        <OfferBlock 
+          title={offerData.title}
+          description={offerData.description}
+          imageSrc={offerData.imageSrc}
+        />
       </div>
-      
-      {/* Футер */}
-      <Footer />
     </div>
   );
 } 
