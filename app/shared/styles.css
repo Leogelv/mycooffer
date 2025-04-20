@@ -1,0 +1,336 @@
+/* Common Block Styles - Shared across components */
+
+/* Typography */
+.blockTitle {
+  font-size: 3.25rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: rgb(44, 46, 80);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, rgb(60, 60, 100) 0%, rgb(100, 70, 180) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+
+.blockTitle::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.75rem;
+  width: 4rem;
+  height: 0.35rem;
+  background: linear-gradient(90deg, rgb(100, 70, 180) 0%, rgba(150, 120, 220, 0.4) 100%);
+  border-radius: 1rem;
+}
+
+.blockSubtitle {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: rgb(60, 60, 100);
+}
+
+.blockText {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: rgb(90, 90, 130);
+}
+
+.blockTextLead {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: rgb(70, 70, 110);
+}
+
+/* Highlight Effects */
+.keywordHighlight {
+  position: relative;
+  color: rgb(90, 60, 160);
+  font-weight: 500;
+  z-index: 1;
+}
+
+.keywordHighlight::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background-color: rgba(150, 120, 220, 0.2);
+  z-index: -1;
+  border-radius: 4px;
+}
+
+.strongHighlight {
+  position: relative;
+  z-index: 1;
+}
+
+.strongHighlight::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  width: 100%;
+  height: 0.5em;
+  background-color: rgba(150, 120, 220, 0.2);
+  z-index: -1;
+  border-radius: 4px;
+}
+
+/* Layout */
+.blockContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.blockContentWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem;
+  max-width: 50%;
+  z-index: 3;
+  margin-left: 3rem;
+}
+
+.blockContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Image Styles */
+.blockImageWrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: sticky;
+  left: 0;
+  top: 0;
+  z-index: 2;
+}
+
+.blockImageContainer {
+  height: 100%;
+  width: 100%;
+  max-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.blockImageContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, 
+    rgba(255, 255, 255, 0.2) 0%, 
+    rgba(240, 240, 255, 0.4) 40%, 
+    rgba(220, 225, 250, 0.6) 80%);
+  border-radius: 2rem;
+  z-index: -1;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 20px 40px rgba(120, 120, 200, 0.1);
+}
+
+.blockImage {
+  height: auto;
+  max-height: 90%;
+  max-width: 90%;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 35px rgba(150, 150, 255, 0.2));
+  animation: floatAnimation 6s ease-in-out infinite;
+  border-radius: 10%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.blockImage:hover {
+  transform: scale(1.02) translateY(-5px);
+}
+
+/* Icon styles */
+.iconWrapper {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 0.5rem;
+  color: rgb(100, 70, 180);
+}
+
+/* Background Styles */
+.gradientBackground {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: radial-gradient(circle at 80% 20%, 
+    rgb(227, 232, 255) 0%, 
+    rgb(238, 232, 255) 15%, 
+    rgb(255, 238, 249) 40%, 
+    rgb(244, 245, 255) 75%, 
+    rgb(235, 244, 255) 100%);
+  background-size: 200% 200%;
+  overflow: hidden;
+  animation: backgroundShimmer 15s ease-in-out infinite alternate;
+}
+
+.gradientBackground::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    ellipse at 10% 90%,
+    rgba(200, 220, 255, 0.5) 0%,
+    rgba(200, 220, 255, 0) 50%
+  );
+  pointer-events: none;
+  z-index: 1;
+  animation: pulseGlow 8s ease-in-out infinite;
+}
+
+.gradientBackground::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 90% 30%,
+    rgba(255, 225, 245, 0.5) 0%,
+    rgba(255, 225, 245, 0) 60%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Animations */
+@keyframes floatAnimation {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes backgroundShimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Responsive styles */
+@media screen and (max-width: 1024px) {
+  .blockTitle {
+    font-size: 2.5rem;
+  }
+  
+  .blockText {
+    font-size: 1.1rem;
+  }
+  
+  .blockTextLead {
+    font-size: 1.25rem;
+  }
+  
+  .blockContentWrapper {
+    padding: 1.5rem;
+    max-width: 60%;
+    margin-left: 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .blockContainer {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  
+  .blockContentWrapper {
+    max-width: 100%;
+    order: 1;
+    padding: 2rem 1.5rem;
+    margin-left: 0;
+  }
+  
+  .blockImageWrapper {
+    order: 2;
+    width: 100%;
+    justify-content: center;
+    position: relative;
+    left: auto;
+    top: auto;
+  }
+  
+  .blockImageContainer {
+    padding: 1rem;
+    max-height: 60vh;
+  }
+  
+  .blockTitle {
+    font-size: 2.25rem;
+    text-align: center;
+  }
+  
+  .blockTitle::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .blockText {
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  .blockTextLead {
+    font-size: 1.15rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .blockContentWrapper {
+    padding: 1.5rem 1rem;
+  }
+  
+  .blockTitle {
+    font-size: 1.85rem;
+  }
+  
+  .blockImageContainer {
+    max-height: 40vh;
+  }
+} 

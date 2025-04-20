@@ -1,7 +1,10 @@
+"use client";
+
 import React, { useEffect, useRef } from 'react';
 import styles from './FeaturesBlock.module.css';
 import MeshGradientBackground from './MeshGradientBackground';
 import { Lightbulb, Book, Wand2, Brain, Zap, FileSearch } from 'lucide-react';
+import '../app/shared/styles.css'; // Import shared styles
 
 interface FeatureItem {
   title: string;
@@ -95,16 +98,16 @@ const FeaturesBlock: React.FC<FeaturesBlockProps> = ({ title, subtitle, features
         className={styles.floatingHeroImage}
       />
 
-      <MeshGradientBackground className={styles.featuresBackground}>
+      <MeshGradientBackground className="gradientBackground">
         <section className={styles.featuresContainer} ref={featuresRef}>
           <div className={styles.headerSection}>
-            <h2 className={styles.title}>
-              <span className={styles.iconWrapper}>
+            <h2 className="blockTitle">
+              <span className="iconWrapper">
                 <Brain size={36} />
               </span>
               {title}
             </h2>
-            <p className={styles.subtitle}>{subtitle}</p>
+            <p className="blockTextLead">{subtitle}</p>
           </div>
           
           <div className={styles.featuresGrid}>
@@ -112,12 +115,12 @@ const FeaturesBlock: React.FC<FeaturesBlockProps> = ({ title, subtitle, features
               <div key={index} className={styles.featureCard}>
                 <div className={styles.featureCardContent}>
                   <div className={styles.featureIcon}>
-                    <span className={styles.iconWrapper}>
+                    <span className="iconWrapper">
                       {getIconByName(feature.icon, 28)}
                     </span>
                   </div>
                   <h3 className={styles.featureTitle}>{feature.title}</h3>
-                  <div className={styles.featureDescription}>
+                  <div className="blockText">
                     {processText(feature.description, styles)}
                   </div>
                 </div>

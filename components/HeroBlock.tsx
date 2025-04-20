@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './HeroBlock.module.css';
+import '../app/shared/styles.css';
 import MeshGradientBackground from './MeshGradientBackground';
 import { Sparkles, Mic, BrainCircuit, Search, Link2, Check } from 'lucide-react';
 
@@ -27,7 +28,7 @@ const HeroBlock: React.FC<HeroBlockProps> = ({ title, content }) => {
     keywords.forEach(keyword => {
       processedText = processedText.replace(
         new RegExp(`(${keyword})`, 'gi'),
-        `<span class="${styles.keywordHighlight}">$1</span>`
+        `<span class="keywordHighlight">$1</span>`
       );
     });
     
@@ -35,22 +36,22 @@ const HeroBlock: React.FC<HeroBlockProps> = ({ title, content }) => {
   };
   
   return (
-    <MeshGradientBackground>
-      <section className={styles.heroContainer}>
-        <div className={styles.contentWrapper}>
-          <h1 className={styles.title}>
-            <span className={styles.iconWrapper}>
+    <MeshGradientBackground className="gradientBackground">
+      <section className="blockContainer">
+        <div className="blockContentWrapper">
+          <h1 className="blockTitle">
+            <span className="iconWrapper">
               <Sparkles size={36} />
             </span>
             {title}
           </h1>
-          <div className={styles.content}>
+          <div className="blockContent">
             {content.map((item, index) => (
-              <p key={index} className={styles.paragraph}>
+              <p key={index} className={index === 0 ? "blockTextLead" : "blockText"}>
                 {index === 0 ? (
                   // Для первого параграфа добавляем иконку и оставляем текст как есть
                   <>
-                    <span className={styles.iconWrapper}>
+                    <span className="iconWrapper">
                       <BrainCircuit size={22} />
                     </span>
                     {item.text}
@@ -58,7 +59,7 @@ const HeroBlock: React.FC<HeroBlockProps> = ({ title, content }) => {
                 ) : index === 1 ? (
                   // Для второго параграфа выделяем ключевые слова и добавляем иконки
                   <>
-                    <span className={styles.iconWrapper}>
+                    <span className="iconWrapper">
                       <Mic size={20} />
                     </span>
                     {processText(item.text)}
@@ -73,12 +74,12 @@ const HeroBlock: React.FC<HeroBlockProps> = ({ title, content }) => {
             ))}
           </div>
         </div>
-        <div className={styles.imageWrapper}>
-          <div className={styles.imageContainer}>
+        <div className="blockImageWrapper">
+          <div className="blockImageContainer">
             <img 
               src="/offermyco/art1-min.png" 
               alt="AI Ethereal Assistant" 
-              className={styles.heroImage}
+              className="blockImage"
             />
           </div>
         </div>
