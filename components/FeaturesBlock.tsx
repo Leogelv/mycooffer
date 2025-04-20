@@ -40,7 +40,7 @@ const getIconByName = (iconName: string, size: number = 24) => {
 };
 
 // Функция для обработки текста с добавлением выделения ключевых слов
-const processText = (text: string, styles: any) => {
+const processText = (text: string) => {
   // Список ключевых слов для выделения
   const keywords = [
     'голосовой', 'исследование', 'автоматически', 'философия',
@@ -56,31 +56,58 @@ const processText = (text: string, styles: any) => {
     );
   });
   
-  return <p dangerouslySetInnerHTML={{ __html: processedText }} />;
+  return processedText;
 };
 
 const FeaturesBlock: React.FC<FeaturesBlockProps> = ({ title, subtitle, features }) => {
   const featuresRef = useRef<HTMLDivElement>(null);
-  const imageRef = useRef<HTMLImageElement>(null);
 
   // Эффект для анимации при прокрутке
   useEffect(() => {
+    const heroImage = document.getElementById('heroImage');
+    const heroBlock = document.getElementById('heroBlock');
+    const heroContent = heroBlock?.querySelector('.blockContent') as HTMLElement;
+    const heroTitle = heroBlock?.querySelector('.blockTitle') as HTMLElement;
+
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
+      const heroHeight = heroBlock?.offsetHeight || 0;
       
-      // Анимация изображения из первого блока
-      if (imageRef.current) {
-        const translateY = Math.min(scrollPosition * 0.3, 300);
-        const scale = Math.max(1 - scrollPosition * 0.001, 0.6);
-        const opacity = Math.max(1 - scrollPosition * 0.003, 0);
+      // Анимация для героя при скролле
+      if (heroImage && heroContent && heroTitle) {
+        const scrollProgress = Math.min(scrollPosition / heroHeight, 1);
         
-        imageRef.current.style.transform = `translateY(${translateY}px) scale(${scale})`;
-        imageRef.current.style.opacity = `${opacity}`;
+        // Увеличиваем картинку и скрываем ее
+        const scale = 1 + scrollProgress * 0.5;
+        const opacity = Math.max(1 - scrollProgress * 2, 0);
+        
+        heroImage.style.transform = `scale(${scale})`;
+        heroImage.style.opacity = opacity.toString();
+        
+        // Скрываем текст
+        heroContent.style.opacity = Math.max(1 - scrollProgress * 2.5, 0).toString();
+        heroTitle.style.opacity = Math.max(1 - scrollProgress * 2, 0).toString();
+        
+        // Добавляем размытие для эффекта
+        heroImage.style.filter = `blur(${scrollProgress * 10}px) drop-shadow(0 15px 35px rgba(150, 150, 255, 0.2))`;
+      }
+      
+      // Анимация появления блока с возможностями
+      if (featuresRef.current) {
+        const featuresPosition = featuresRef.current.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (featuresPosition < windowHeight * 0.75) {
+          featuresRef.current.classList.add(styles.visible);
+        }
       }
     };
 
     // Добавляем слушатель события прокрутки
     window.addEventListener('scroll', handleScroll);
+    
+    // Вызываем один раз для инициализации
+    handleScroll();
     
     // Очищаем слушатель при размонтировании
     return () => {
@@ -90,14 +117,6 @@ const FeaturesBlock: React.FC<FeaturesBlockProps> = ({ title, subtitle, features
 
   return (
     <div className={styles.featuresBlockWrapper}>
-      {/* Скрытый элемент для анимации изображения из первого блока */}
-      <img 
-        ref={imageRef}
-        src="/offermyco/art1-min.png" 
-        alt="Floating hero image" 
-        className={styles.floatingHeroImage}
-      />
-
       <MeshGradientBackground className="gradientBackground">
         <section className={styles.featuresContainer} ref={featuresRef}>
           <div className={styles.headerSection}>
@@ -121,7 +140,7 @@ const FeaturesBlock: React.FC<FeaturesBlockProps> = ({ title, subtitle, features
                   </div>
                   <h3 className={styles.featureTitle}>{feature.title}</h3>
                   <div className="blockText">
-                    {processText(feature.description, styles)}
+                    <span dangerouslySetInnerHTML={{ __html: processText(feature.description) }} />
                   </div>
                 </div>
                 

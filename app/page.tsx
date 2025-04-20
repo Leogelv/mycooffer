@@ -15,13 +15,6 @@ interface Section {
   icon: string | null;
 }
 
-interface FeatureItem {
-  title: string;
-  description: string;
-  icon: string;
-  image?: string;
-}
-
 export default function Home() {
   // Данные первого блока
   const heroSection: Section = {

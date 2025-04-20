@@ -1,8 +1,7 @@
 import React from 'react';
-import styles from './HeroBlock.module.css';
 import '../app/shared/styles.css';
 import MeshGradientBackground from './MeshGradientBackground';
-import { Sparkles, Mic, BrainCircuit, Search, Link2, Check } from 'lucide-react';
+import { Sparkles, Mic, BrainCircuit } from 'lucide-react';
 
 interface ContentItem {
   type: string;
@@ -32,12 +31,12 @@ const HeroBlock: React.FC<HeroBlockProps> = ({ title, content }) => {
       );
     });
     
-    return <p dangerouslySetInnerHTML={{ __html: processedText }} />;
+    return processedText;
   };
   
   return (
     <MeshGradientBackground className="gradientBackground">
-      <section className="blockContainer">
+      <section className="blockContainer" id="heroBlock">
         <div className="blockContentWrapper">
           <h1 className="blockTitle">
             <span className="iconWrapper">
@@ -62,7 +61,7 @@ const HeroBlock: React.FC<HeroBlockProps> = ({ title, content }) => {
                     <span className="iconWrapper">
                       <Mic size={20} />
                     </span>
-                    {processText(item.text)}
+                    <span dangerouslySetInnerHTML={{ __html: processText(item.text) }} />
                   </>
                 ) : (
                   // Для остальных параграфов просто показываем текст
@@ -80,6 +79,7 @@ const HeroBlock: React.FC<HeroBlockProps> = ({ title, content }) => {
               src="/offermyco/art1-min.png" 
               alt="AI Ethereal Assistant" 
               className="blockImage"
+              id="heroImage"
             />
           </div>
         </div>
