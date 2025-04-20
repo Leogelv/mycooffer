@@ -11,7 +11,7 @@
 
 html, 
 body {
-  font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   background: #ffffff;
   color: #2c2e50;
   width: 100%;
@@ -26,12 +26,20 @@ html {
 
 /* Improved typography */
 h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-unbounded), system-ui, sans-serif;
   font-weight: 600;
   line-height: 1.3;
 }
 
 p {
+  font-family: var(--font-inter), system-ui, sans-serif;
   line-height: 1.6;
+}
+
+/* Strong text styling */
+strong {
+  font-weight: 600;
+  color: #3a3d5c;
 }
 
 /* Focus states */
