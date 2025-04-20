@@ -41,12 +41,13 @@ const HeroBlock: React.FC<HeroBlockProps> = ({ title, content }) => {
         <div className="blockContentWrapper">
           <div className="logoContainer">
             <Image 
-              src="/offermyco/ns_black.png" 
+              src="/ns_black.png" 
               alt="MykoMystic Logo" 
               width={180} 
               height={60} 
               className="logoImage"
               priority
+              unoptimized
             />
           </div>
           <div className="chipContainer">
