@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Next.js build output
+.next
+out
+
+# Extra ignore for build process
+.vercel
+build-stale-*
+.turbo
