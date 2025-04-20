@@ -1,0 +1,293 @@
+/* FeaturesBlock.module.css */
+.featuresBlockWrapper {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.featuresBackground {
+  min-height: 100vh;
+  padding-top: 2rem;
+}
+
+.featuresContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 2;
+  position: relative;
+}
+
+.headerSection {
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title {
+  font-size: 2.75rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: rgb(44, 46, 80);
+  line-height: 1.2;
+  background: linear-gradient(135deg, rgb(60, 60, 100) 0%, rgb(100, 70, 180) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  display: inline-block;
+}
+
+.title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -0.75rem;
+  width: 6rem;
+  height: 0.35rem;
+  background: linear-gradient(90deg, rgb(100, 70, 180) 0%, rgba(150, 120, 220, 0.4) 100%);
+  border-radius: 1rem;
+}
+
+.subtitle {
+  font-size: 1.4rem;
+  line-height: 1.7;
+  color: rgb(70, 70, 110);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.featureCard {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 30px rgba(120, 120, 200, 0.1);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.featureCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(120, 120, 200, 0.15);
+}
+
+.featureCardContent {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  z-index: 1;
+}
+
+.featureIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, rgba(220, 220, 255, 0.5) 0%, rgba(230, 220, 255, 0.8) 100%);
+}
+
+.featureTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: rgb(44, 46, 80);
+  line-height: 1.3;
+  font-family: var(--font-unbounded), system-ui, sans-serif;
+  position: relative;
+  display: inline-block;
+}
+
+.featureTitle::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.5rem;
+  width: 3rem;
+  height: 0.25rem;
+  background: linear-gradient(90deg, rgb(100, 70, 180) 0%, rgba(150, 120, 220, 0.4) 100%);
+  border-radius: 1rem;
+}
+
+.featureDescription {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: rgb(90, 90, 130);
+}
+
+.featureImageContainer {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  margin-top: auto;
+}
+
+.featureImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.featureCard:hover .featureImage {
+  transform: scale(1.05);
+}
+
+/* Floating image from HeroBlock */
+.floatingHeroImage {
+  position: absolute;
+  top: -100px;
+  right: 10%;
+  width: auto;
+  height: 250px;
+  z-index: 10;
+  border-radius: 10%;
+  filter: drop-shadow(0 15px 35px rgba(150, 150, 255, 0.2));
+  pointer-events: none;
+  transition: transform 0.3s ease-out;
+}
+
+/* KeyWord Highlight Effect (same as in HeroBlock) */
+.keywordHighlight {
+  position: relative;
+  color: rgb(90, 60, 160);
+  font-weight: 500;
+  z-index: 1;
+}
+
+.keywordHighlight::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background-color: rgba(150, 120, 220, 0.2);
+  z-index: -1;
+  border-radius: 4px;
+}
+
+/* Icon styles */
+.iconWrapper {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 0.5rem;
+  color: rgb(100, 70, 180);
+}
+
+/* Responsive styles */
+@media screen and (max-width: 1024px) {
+  .featuresContainer {
+    padding: 3rem 2rem;
+  }
+  
+  .featuresGrid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  
+  .title {
+    font-size: 2.25rem;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .floatingHeroImage {
+    height: 200px;
+    right: 5%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .featuresContainer {
+    padding: 2rem 1.5rem;
+  }
+  
+  .featuresGrid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .featureCard {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+  }
+  
+  .featureCardContent {
+    flex: 2;
+    padding: 1.5rem;
+  }
+  
+  .featureImageContainer {
+    flex: 1;
+    height: auto;
+    margin-top: 0;
+  }
+  
+  .floatingHeroImage {
+    height: 150px;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .featuresContainer {
+    padding: 1.5rem 1rem;
+  }
+  
+  .title {
+    font-size: 1.75rem;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .featureCard {
+    flex-direction: column;
+  }
+  
+  .featureCardContent {
+    padding: 1.25rem;
+  }
+  
+  .featureImageContainer {
+    height: 180px;
+  }
+  
+  .floatingHeroImage {
+    height: 120px;
+    top: -40px;
+  }
+} 
