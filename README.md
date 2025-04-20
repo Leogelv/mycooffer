@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MykoMystic Offer
+
+A modern web application built with Next.js 15 for MykoMystic offers and services.
+
+## Project Overview
+
+This project uses Next.js 15 with App Router, TypeScript, and Tailwind CSS to create a high-performance, responsive web application. The application implements shadcn/ui components for a consistent UI experience.
+
+## Tech Stack
+
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui
+- **State Management**: React Context / Hooks
+- **Package Manager**: pnpm
+- **Database**: Supabase
+- **Deployment**: Vercel
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Node.js 20.x or later
+- pnpm 8.x or later
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/mykomystic_offewr.git
+   cd mykomystic_offewr
+   ```
+
+2. Install dependencies:
+   ```bash
+   pnpm install
+   ```
+
+3. Run the development server:
+   ```bash
+   pnpm dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Project Structure
+
+```
+├── app/                  # Next.js App Router files
+│   ├── layout.tsx        # Root layout
+│   └── page.tsx          # Home page
+├── components/           # Reusable UI components
+├── lib/                  # Utility functions
+│   └── utils.ts          # Common utility functions
+├── public/               # Static assets
+├── PLANNING.md           # Project architecture and planning
+├── TASK.md               # Current tasks and progress
+└── package.json          # Dependencies and scripts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Development Workflow
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Check `PLANNING.md` for architecture and coding standards
+2. Review `TASK.md` for current tasks and their status
+3. Create or update components following the established patterns
+4. Run tests before submitting changes
+5. Update documentation for any new features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Available Scripts
 
-## Learn More
+- `pnpm dev` - Start development server with turbopack
+- `pnpm build` - Build for production
+- `pnpm start` - Start production server
+- `pnpm lint` - Run ESLint
 
-To learn more about Next.js, take a look at the following resources:
+## Environment Variables
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Create a `.env.local` file with the following variables:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The application is configured for deployment on Vercel.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contributing
+
+1. Follow the coding standards in `PLANNING.md`
+2. Update `TASK.md` with your current tasks
+3. Use feature branches for new features
+4. Write descriptive commit messages
+
+## License
+
+[Specify license information]
+
+---
+
+Last verified: 2024-06-28
