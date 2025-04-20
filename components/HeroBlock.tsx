@@ -49,6 +49,9 @@ const HeroBlock: React.FC<HeroBlockProps> = ({ title, content }) => {
               priority
             />
           </div>
+          <div className="chipContainer">
+            <span className="chip">коммерческое предложение</span>
+          </div>
           <h1 className="blockTitle">
             <span className="iconWrapper">
               <Sparkles size={36} />
