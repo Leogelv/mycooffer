@@ -91,6 +91,7 @@
   position: relative;
   overflow: hidden;
   z-index: 2;
+  padding: 1rem 0;
 }
 
 .blockContentWrapper {
@@ -272,12 +273,19 @@
     max-width: 60%;
     margin-left: 2rem;
   }
+  
+  .blockImage {
+    max-width: 85%;
+    max-height: 85%;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .blockContainer {
     flex-direction: column;
     justify-content: flex-start;
+    min-height: auto;
+    padding: 2rem 0;
   }
   
   .blockContentWrapper {
@@ -294,11 +302,14 @@
     position: relative;
     left: auto;
     top: auto;
+    margin-top: 1rem;
+    height: auto;
   }
   
   .blockImageContainer {
     padding: 1rem;
     max-height: 60vh;
+    height: auto;
   }
   
   .blockTitle {
@@ -318,20 +329,40 @@
   
   .blockTextLead {
     font-size: 1.15rem;
+    text-align: center;
+  }
+  
+  .blockContent {
+    align-items: center;
   }
 }
 
 @media screen and (max-width: 480px) {
+  .blockContainer {
+    padding: 1rem 0;
+  }
+
   .blockContentWrapper {
     padding: 1.5rem 1rem;
   }
   
   .blockTitle {
     font-size: 1.85rem;
+    margin-bottom: 1.5rem;
   }
   
   .blockImageContainer {
     max-height: 40vh;
+    padding: 0.5rem;
+  }
+  
+  .blockImage {
+    max-width: 100%;
+    border-radius: 8%;
+  }
+  
+  .gradientBackground {
+    min-height: auto;
   }
 }
 

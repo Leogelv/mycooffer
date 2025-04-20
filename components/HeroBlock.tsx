@@ -95,10 +95,11 @@ const HeroBlock: React.FC<HeroBlockProps> = ({ title, content }) => {
               alt="AI Ethereal Assistant"
               className="blockImage"
               id="heroImage"
-              style={{ filter: 'none' }}
-              width={600}
-              height={600}
+              style={{ filter: 'none', objectFit: 'contain' }}
+              width={500}
+              height={500}
               priority
+              sizes="(max-width: 768px) 90vw, (max-width: 1200px) 50vw, 40vw"
             />
           </div>
         </div>
