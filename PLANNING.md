@@ -13,8 +13,10 @@
 *   **Frontend:** TypeScript, React (Next.js 15+)
 *   **Database:** Supabase
 *   **Deployment:** Vercel (Frontend), Railway (Backend)
-*   **UI Components:** shadcn/ui
+*   **UI Components:** shadcn/ui, custom components
 *   **Package Manager:** pnpm
+*   **Icons:** Lucide React
+*   **Fonts:** Inter (text), Unbounded (headings)
 
 ## 3. Coding Style & Conventions
 
@@ -26,7 +28,7 @@
 *   **Comments:** Explain complex logic. Use `# Reason:` or `// Reason:` for non-obvious choices.
 *   **Component Structure:** Functional components with hooks
 *   **State Management:** React Context or Zustand for global state
-*   **Styling:** Tailwind CSS with class-variance-authority for variants
+*   **Styling:** CSS Modules with Tailwind CSS
 
 ## 4. Project Structure
 
@@ -49,15 +51,27 @@
 *   **Code Reviews:** All changes should be reviewed before merging
 *   **Testing:** Unit tests for critical functionality
 *   **Documentation:** Update README.md with any new features or setup changes
+*   **Design System:** Follow guidelines in GUIDELINES.md for consistency
 
-## 6. Key Constraints & Considerations
+## 6. Design System
+
+Detailed design guidelines are available in the [GUIDELINES.md](./GUIDELINES.md) document.
+
+Key points include:
+*   **Typography:** Unbounded for headings, Inter for text
+*   **Colors:** Light palette with purple and blue accents
+*   **Components:** Modular, reusable components with CSS modules
+*   **Effects:** Subtle animations, gradients, and shadows
+*   **Accessibility:** Ensure proper contrast and semantic markup
+
+## 7. Key Constraints & Considerations
 
 *   Mobile-first design approach
 *   Accessibility compliance (WCAG 2.1 AA)
 *   Performance optimization for core web vitals
 *   SEO best practices
 
-## 7. README.md
+## 8. README.md
 
 *   Keep `README.md` updated with setup, dependencies, and structure. Mark last verification date. 
 
