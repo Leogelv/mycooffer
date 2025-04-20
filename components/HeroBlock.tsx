@@ -39,6 +39,16 @@ const HeroBlock: React.FC<HeroBlockProps> = ({ title, content }) => {
     <MeshGradientBackground className="gradientBackground">
       <section className="blockContainer" id="heroBlock">
         <div className="blockContentWrapper">
+          <div className="logoContainer">
+            <Image 
+              src="/offermyco/ns black.png" 
+              alt="MykoMystic Logo" 
+              width={180} 
+              height={60} 
+              className="logoImage"
+              priority
+            />
+          </div>
           <h1 className="blockTitle">
             <span className="iconWrapper">
               <Sparkles size={36} />
