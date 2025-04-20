@@ -5,11 +5,14 @@ import styles from './TechDetailsBlock.module.css';
 import MeshGradientBackground from './MeshGradientBackground';
 import { Cpu, Code, Bot, Search, Youtube, GanttChart, FileText, FilePlus, Lock, ArrowRight, Mic, LayoutDashboard } from 'lucide-react';
 import '../app/shared/styles.css';
+import Image from 'next/image';
 
 interface TechFeature {
   title: string;
   description: string;
   icon: string;
+  price?: string;
+  priceDescription?: string;
 }
 
 interface TechDetailsBlockProps {
@@ -21,6 +24,15 @@ interface TechDetailsBlockProps {
     content: string[];
     buttonText?: string;
     buttonLink?: string;
+  };
+  additionalInfo?: {
+    title: string;
+    items: Array<{
+      title: string;
+      description: string;
+      icon: string;
+      price?: string;
+    }>;
   };
 }
 
@@ -75,7 +87,7 @@ const getIconForFeature = (title: string): string => {
   }
 };
 
-const TechDetailsBlock: React.FC<TechDetailsBlockProps> = ({ title, introduction, features, conclusion }) => {
+const TechDetailsBlock: React.FC<TechDetailsBlockProps> = ({ title, introduction, features, conclusion, additionalInfo }) => {
   // Обновляем описание Ghostwriter, если он есть
   const updatedFeatures = features.map(feature => {
     if (feature.title === 'Ghostwriter (голосовой ввод)') {
@@ -103,46 +115,62 @@ const TechDetailsBlock: React.FC<TechDetailsBlockProps> = ({ title, introduction
           
           <div className={styles.techContent}>
             <div className={styles.techFeaturesGrid}>
-              {updatedFeatures.map((feature, index) => {
-                const iconName = feature.icon || getIconForFeature(feature.title);
-                
-                return (
-                  <div key={index} className={styles.techFeature}>
-                    <div className={styles.techFeatureNumber}>{index + 1}</div>
-                    <div className={styles.techFeatureIcon}>
-                      <span className="iconWrapper">
-                        {getIconByName(iconName, 28)}
-                      </span>
-                    </div>
-                    <h3 className={styles.techFeatureTitle}>{feature.title}</h3>
-                    <div className="blockText">
-                      <p>{feature.description}</p>
-                    </div>
+              {updatedFeatures.map((feature, index) => (
+                <div key={index} className={styles.techFeature}>
+                  <div className={styles.techFeatureIcon}>
+                    <span className="iconWrapper">
+                      {getIconByName(feature.icon || getIconForFeature(feature.title), 32)}
+                    </span>
                   </div>
-                );
-              })}
+                  <div className={styles.techFeatureContent}>
+                    <h3>{feature.title}</h3>
+                    <p>{feature.description}</p>
+                    {feature.price && (
+                      <div className={styles.priceTag}>
+                        <span className={styles.price}>{feature.price}</span>
+                        {feature.priceDescription && (
+                          <span className={styles.priceDescription}>{feature.priceDescription}</span>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
             </div>
             
             <div className={styles.conclusionSection}>
-              <h3 className={styles.conclusionTitle}>{conclusion.title}</h3>
-              <div className="blockText">
-                {conclusion.content.map((paragraph, index) => (
-                  <p key={index}>{paragraph}</p>
-                ))}
-              </div>
-              
-              {conclusion.buttonText && (
-                <a 
-                  href={conclusion.buttonLink || "#"} 
-                  className={styles.actionButton}
-                >
-                  <span className={styles.actionButtonIcon}>
-                    <ArrowRight size={20} />
-                  </span>
+              <h2 className={styles.conclusionTitle}>{conclusion.title}</h2>
+              {conclusion.content.map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
+              {conclusion.buttonText && conclusion.buttonLink && (
+                <a href={conclusion.buttonLink} className={styles.actionButton}>
                   {conclusion.buttonText}
                 </a>
               )}
             </div>
+
+            {additionalInfo && (
+              <div className={styles.additionalInfoContainer}>
+                <h2>{additionalInfo.title}</h2>
+                <div className={styles.infoChipsContainer}>
+                  {additionalInfo.items.map((item, index) => (
+                    <div key={index} className={styles.infoChip}>
+                      <div className={styles.infoChipIcon}>
+                        <span className="iconWrapper">
+                          {getIconByName(item.icon || getIconForFeature(item.title), 24)}
+                        </span>
+                      </div>
+                      <div className={styles.infoChipContent}>
+                        <h4>{item.title}</h4>
+                        <p>{item.description}</p>
+                        {item.price && <span className={styles.chipPrice}>{item.price}</span>}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </section>
       </MeshGradientBackground>

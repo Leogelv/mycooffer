@@ -11,6 +11,12 @@ interface Stage {
   description: string;
   deliverable: string;
   duration: string;
+  price?: string;
+}
+
+interface AdminCost {
+  title: string;
+  price: string;
 }
 
 interface RoadmapBlockProps {
@@ -24,9 +30,10 @@ interface RoadmapBlockProps {
     modules: number;
     platform: string;
   };
+  adminCosts?: AdminCost[];
 }
 
-const RoadmapBlock: React.FC<RoadmapBlockProps> = ({ title, description, stages, pricingInfo }) => {
+const RoadmapBlock: React.FC<RoadmapBlockProps> = ({ title, description, stages, pricingInfo, adminCosts }) => {
   return (
     <div className={styles.roadmapBlockWrapper}>
       <MeshGradientBackground className="gradientBackground">
@@ -52,9 +59,17 @@ const RoadmapBlock: React.FC<RoadmapBlockProps> = ({ title, description, stages,
                       <p className={styles.stageDescription}>{stage.description}</p>
                       <p><strong>Что получаете:</strong> {stage.deliverable}</p>
                     </div>
-                    <div className={styles.stageDuration}>
-                      <Clock size={18} /> 
-                      <span>{stage.duration}</span>
+                    <div className={styles.stageFooter}>
+                      <div className={styles.stageDuration}>
+                        <Clock size={18} /> 
+                        <span>{stage.duration}</span>
+                      </div>
+                      {stage.price && (
+                        <div className={styles.stagePrice}>
+                          <DollarSign size={18} />
+                          <span>{stage.price}</span>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -97,6 +112,20 @@ const RoadmapBlock: React.FC<RoadmapBlockProps> = ({ title, description, stages,
                   <div className={styles.summaryLabel}>Платформа</div>
                 </div>
               </div>
+              
+              {adminCosts && adminCosts.length > 0 && (
+                <div className={styles.adminCostsContainer}>
+                  <h4 className={styles.adminCostsTitle}>Административные расходы</h4>
+                  <div className={styles.adminCostsList}>
+                    {adminCosts.map((cost, index) => (
+                      <div key={index} className={styles.adminCostItem}>
+                        <span className={styles.adminCostTitle}>{cost.title}</span>
+                        <span className={styles.adminCostPrice}>{cost.price}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </section>

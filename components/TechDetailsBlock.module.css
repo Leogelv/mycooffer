@@ -81,6 +81,23 @@
   font-family: var(--font-unbounded), system-ui, sans-serif;
 }
 
+.techFeatureContent {
+  flex: 1;
+}
+
+.techFeatureContent h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: rgb(60, 65, 115);
+}
+
+.techFeatureContent p {
+  color: rgb(90, 95, 125);
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+}
+
 .conclusionSection {
   position: relative;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(245, 245, 255, 0.9));
@@ -140,7 +157,96 @@
   margin-right: 0.75rem;
 }
 
-/* Responsive styles */
+/* Стили для ценников */
+.priceTag {
+  display: flex;
+  align-items: baseline;
+  margin-top: 0.75rem;
+  gap: 0.5rem;
+}
+
+.price {
+  font-weight: 700;
+  color: rgb(100, 70, 180);
+  font-size: 1.1rem;
+}
+
+.priceDescription {
+  font-size: 0.85rem;
+  color: rgb(120, 125, 150);
+  font-style: italic;
+}
+
+/* Стили для дополнительной информации */
+.additionalInfoContainer {
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  margin-top: 3rem;
+  box-shadow: 0 10px 25px rgba(120, 120, 200, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.additionalInfoContainer h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: rgb(60, 65, 115);
+  text-align: center;
+}
+
+.infoChipsContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.infoChip {
+  background: rgba(245, 245, 255, 0.8);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.infoChip:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(120, 120, 200, 0.1);
+}
+
+.infoChipIcon {
+  display: flex;
+  align-items: flex-start;
+  color: rgb(100, 70, 180);
+}
+
+.infoChipContent {
+  flex: 1;
+}
+
+.infoChipContent h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: rgb(60, 65, 115);
+}
+
+.infoChipContent p {
+  font-size: 0.9rem;
+  color: rgb(90, 95, 125);
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+.chipPrice {
+  display: inline-block;
+  font-weight: 600;
+  color: rgb(100, 70, 180);
+  font-size: 0.95rem;
+}
+
+/* Адаптация для дополнительной информации */
 @media screen and (max-width: 1024px) {
   .techFeaturesGrid {
     grid-template-columns: repeat(2, 1fr);
@@ -149,6 +255,10 @@
   
   .conclusionSection {
     padding: 2.5rem;
+  }
+  
+  .infoChipsContainer {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -172,6 +282,14 @@
   
   .conclusionTitle {
     font-size: 1.75rem;
+  }
+  
+  .infoChipsContainer {
+    grid-template-columns: 1fr;
+  }
+  
+  .additionalInfoContainer {
+    padding: 2rem;
   }
 }
 

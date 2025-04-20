@@ -51,6 +51,14 @@ This project uses Next.js 15 with App Router, TypeScript, and Tailwind CSS to cr
 │   ├── layout.tsx        # Root layout
 │   └── page.tsx          # Home page
 ├── components/           # Reusable UI components
+│   ├── Button.tsx        # Кнопка с действием
+│   ├── CurrentStatusBlock.tsx # Компонент "Что у вас уже есть"
+│   ├── FeaturesBlock.tsx # Компонент с возможностями
+│   ├── HeroBlock.tsx     # Главный блок страницы
+│   ├── MeshGradientBackground.tsx # Компонент с градиентным фоном
+│   ├── RoadmapBlock.tsx  # Компонент с дорожной картой
+│   ├── TechDetailsBlock.tsx # Компонент с техническими деталями и ценами
+│   └── UserJourneyBlock.tsx # Компонент с путем пользователя
 ├── lib/                  # Utility functions
 │   └── utils.ts          # Common utility functions
 ├── public/               # Static assets
@@ -100,4 +108,4 @@ The application is configured for deployment on Vercel.
 
 ---
 
-Last verified: 2024-06-28
+Last verified: 2024-07-27
