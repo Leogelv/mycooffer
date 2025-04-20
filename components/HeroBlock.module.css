@@ -1,0 +1,166 @@
+/* HeroBlock.module.css */
+.heroContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  z-index: 2; /* Выше, чем градиентные псевдоэлементы в MeshGradientBackground */
+}
+
+.contentWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  max-width: 50%;
+  z-index: 3;
+  margin-left: 3rem;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: rgb(44, 46, 80);
+  line-height: 1.2;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.paragraph {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: rgb(90, 90, 130);
+}
+
+.imageWrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: sticky;
+  left: 0;
+  top: 0;
+  z-index: 2;
+}
+
+.imageContainer {
+  height: 100%;
+  width: 100%;
+  max-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.imageContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, 
+    rgba(255, 255, 255, 0.2) 0%, 
+    rgba(240, 240, 255, 0.4) 40%, 
+    rgba(220, 225, 250, 0.6) 80%);
+  border-radius: 2rem;
+  z-index: -1;
+}
+
+.heroImage {
+  height: auto;
+  max-height: 90%;
+  max-width: 90%;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 25px rgba(150, 150, 255, 0.15));
+  animation: floatAnimation 6s ease-in-out infinite;
+}
+
+@keyframes floatAnimation {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+/* Responsive styles */
+@media screen and (max-width: 1024px) {
+  .contentWrapper {
+    padding: 1.5rem;
+    max-width: 60%;
+    margin-left: 2rem;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+  }
+  
+  .paragraph {
+    font-size: 1.1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .heroContainer {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  
+  .contentWrapper {
+    max-width: 100%;
+    order: 1;
+    padding: 2rem 1.5rem;
+    margin-left: 0;
+  }
+  
+  .imageWrapper {
+    order: 2;
+    width: 100%;
+    justify-content: center;
+    position: relative;
+    left: auto;
+    top: auto;
+  }
+  
+  .imageContainer {
+    padding: 1rem;
+    max-height: 60vh;
+  }
+  
+  .title {
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  .paragraph {
+    font-size: 1rem;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .contentWrapper {
+    padding: 1.5rem 1rem;
+  }
+  
+  .title {
+    font-size: 1.75rem;
+  }
+  
+  .imageContainer {
+    max-height: 40vh;
+  }
+} 

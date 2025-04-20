@@ -1,4 +1,5 @@
 import React from 'react';
+import HeroBlock from '../components/HeroBlock';
 
 interface ContentItem {
   type: string;
@@ -14,10 +15,10 @@ interface Section {
 }
 
 export default function Home() {
-  // Данные первого блока, вставленные напрямую
+  // Данные первого блока
   const heroSection: Section = {
     id: "hero",
-    title: "Ваш личный философский Джарвис",
+    title: "Ваш личный ИИ агент",
     content: [
       {
         type: "paragraph",
@@ -32,16 +33,5 @@ export default function Home() {
     icon: null
   };
 
-  return (
-    <main className="min-h-screen flex flex-col items-center justify-center p-4 bg-gray-100">
-      <div className="max-w-2xl w-full bg-white rounded-lg shadow-md p-8">
-        <h1 className="text-3xl font-bold text-gray-800 mb-6">{heroSection.title}</h1>
-        {heroSection.content.map((item: ContentItem, index: number) => (
-          <p key={index} className="text-gray-600 mb-4">
-            {item.text}
-          </p>
-        ))}
-      </div>
-    </main>
-  );
+  return <HeroBlock title={heroSection.title} content={heroSection.content} />;
 }
