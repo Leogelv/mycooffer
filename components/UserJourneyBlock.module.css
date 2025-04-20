@@ -32,15 +32,16 @@
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 2rem;
+  gap: 1rem;
   position: relative;
+  margin-left: 2.5rem;
 }
 
 .step:not(:last-child)::after {
   content: "";
   position: absolute;
-  left: 2.5rem;
-  top: 5.5rem;
+  left: -2.5rem;
+  top: 5rem;
   bottom: -3rem;
   width: 2px;
   background: linear-gradient(to bottom, rgba(150, 120, 220, 0.7), rgba(150, 120, 220, 0.1));
@@ -61,7 +62,9 @@
   color: white;
   box-shadow: 0 8px 20px rgba(120, 120, 200, 0.15);
   z-index: 2;
-  position: relative;
+  position: absolute;
+  left: -2.5rem;
+  top: -0.5rem;
 }
 
 .stepContent {
@@ -148,17 +151,20 @@
 /* Responsive styles */
 @media screen and (max-width: 1024px) {
   .step {
-    gap: 1.5rem;
+    gap: 1rem;
+    margin-left: 2.25rem;
   }
   
   .stepNumber {
     width: 4.5rem;
     height: 4.5rem;
     font-size: 1.5rem;
+    left: -2.25rem;
   }
   
   .step:not(:last-child)::after {
-    left: 2.25rem;
+    left: -2.25rem;
+    top: 4.5rem;
   }
   
   .stepImageContainer {
@@ -181,13 +187,15 @@
   }
   
   .step {
-    gap: 1.25rem;
+    gap: 1rem;
+    margin-left: 2rem;
   }
   
   .stepNumber {
     width: 4rem;
     height: 4rem;
     font-size: 1.25rem;
+    left: -2rem;
   }
   
   .stepContent {
@@ -195,8 +203,8 @@
   }
   
   .step:not(:last-child)::after {
-    left: 2rem;
-    top: 5rem;
+    left: -2rem;
+    top: 4rem;
   }
   
   .stepImageContainer {
@@ -210,15 +218,19 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    margin-left: 0;
   }
   
   .stepNumber {
+    position: relative;
+    left: 0;
+    top: 0;
     margin-bottom: 1rem;
   }
   
   .step:not(:last-child)::after {
     left: 50%;
-    top: 5rem;
+    top: 4rem;
     bottom: -2.5rem;
     transform: translateX(-50%);
   }
