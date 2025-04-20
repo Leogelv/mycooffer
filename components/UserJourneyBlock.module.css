@@ -110,7 +110,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  margin-left: auto;
+  margin-left: 0;
   margin-right: auto;
 }
 
@@ -163,6 +163,7 @@
   
   .stepImageContainer {
     max-width: 250px;
+    margin-left: 0;
   }
 }
 
@@ -200,6 +201,7 @@
   
   .stepImageContainer {
     max-width: 200px;
+    margin-left: 0;
   }
 }
 
@@ -235,5 +237,7 @@
   
   .stepImageContainer {
     max-width: 180px;
+    margin-left: auto;
+    margin-right: auto;
   }
 } 
