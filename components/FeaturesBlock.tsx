@@ -91,16 +91,6 @@ const FeaturesBlock: React.FC<FeaturesBlockProps> = ({ title, subtitle, features
         // Добавляем размытие для эффекта
         heroImage.style.filter = `blur(${scrollProgress * 10}px) drop-shadow(0 15px 35px rgba(150, 150, 255, 0.2))`;
       }
-      
-      // Анимация появления блока с возможностями
-      if (featuresRef.current) {
-        const featuresPosition = featuresRef.current.getBoundingClientRect().top;
-        const windowHeight = window.innerHeight;
-        
-        if (featuresPosition < windowHeight * 0.75) {
-          featuresRef.current.classList.add(styles.visible);
-        }
-      }
     };
 
     // Добавляем слушатель события прокрутки
